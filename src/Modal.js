@@ -60,6 +60,16 @@ class Modal extends React.Component {
     close(e);
   }
 
+  renderCloseButton() {
+    if (this.props.hideCloseButton) return false;
+
+    return (
+      <a style={this.styles.closeButton} onClick={this.handleClose.bind(this)}>
+      <i className="material-icons">close</i>
+      </a>
+    );
+  }
+
   render() {
     const { active, children } = this.props;
     if (!active) return false;
@@ -68,9 +78,7 @@ class Modal extends React.Component {
       <div style={this.styles.main}>
         <div style={this.styles.background} onClick={this.handleClose.bind(this)} />
         <div style={this.styles.content}>
-          <a style={this.styles.closeButton} onClick={this.handleClose.bind(this)}>
-            <i className="material-icons">close</i>
-          </a>
+          {this.renderCloseButton()}
           {children}
         </div>
       </div>
@@ -78,9 +86,14 @@ class Modal extends React.Component {
   }
 }
 
+Modal.defaultProps = {
+  hideCloseButton: false,
+};
+
 Modal.propTypes = {
   active: PropTypes.bool.isRequired,
   close: PropTypes.func.isRequired,
+  hideCloseButton: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
