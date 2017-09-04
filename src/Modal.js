@@ -1,6 +1,7 @@
-import React, { PropTypes, Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class Modal extends Component {
+class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.styles = {
