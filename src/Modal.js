@@ -95,8 +95,8 @@ Modal.propTypes = {
   close: PropTypes.func.isRequired,
   hideCloseButton: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
-  width: PropTypes.string.isRequired,
-  height: PropTypes.string.isRequired,
+  width: PropTypes.string,
+  height: PropTypes.string,
 };
 
 export default Modal;
